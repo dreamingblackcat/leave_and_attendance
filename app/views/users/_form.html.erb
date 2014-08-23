@@ -1,0 +1,86 @@
+<%= form_for(@user) do|f| %>
+		<div class="errors">
+			<% if @user.errors.any? %>
+			  <div id="error_explanation">
+			    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+			    <ul>
+			    <% @user.errors.full_messages.each do |message| %>
+			      <li><%= message %></li>
+			    <% end %>
+			    </ul>
+			  </div>
+			<% end %>
+		</div>
+		<div class="row">
+			<div class="large-6 columns">
+				<h5>Employee data</h5>
+				<p>
+					<%= f.label :name %>
+					<%= f.text_field :name %>
+				</p>
+				<p>
+					<%= f.label :email %>
+					<%= f.text_field :email %>
+				</p>
+				<p>
+					<%= f.label :employee_no,"Employee Number" %>
+					<%= f.text_field :employee_no %>
+				</p>
+				<p>
+					<%= f.label :bank_card_number %>
+					<%= f.text_field :bank_card_number %>
+				</p>
+				<p>
+					<%= f.label :gender %>
+					Female<%= f.radio_button :gender,"Female" %>
+					Male<%= f.radio_button :gender,"Male"%>
+				</p>
+				<p>
+					<%= f.label "Team to Assign" %>
+					<%= f.collection_select :team_id, Team.all, :id, :name %>
+				</p>
+
+			</div>
+			<div class="large-6 columns">
+				<h5>Personal Data</h5>
+				<p>
+					<%= f.label :nationality %>
+					<%= f.text_field :nationality %>
+				</p>
+				<p>
+					<%= f.label :religion %>
+					<%= f.text_field :religion %>
+				</p>
+				<p>
+					<%= f.label :joined_date,"Date start joining the company" %>
+					<%= f.date_select :joined_date %>
+				</p>
+				<p>
+					<%= f.label :phone_no,"Phone Number" %>
+					<%= f.text_field :phone_no %>
+				</p>
+				<p>
+					<%= f.label :address %>
+					<%= f.text_area :address ,rows: 4%>
+				</p>
+			</div>
+			<div class="row">
+			<div class="large-6 columns">
+				<% unless @user.password %>
+					<h5>Enter Credentials</h5>
+					<p>
+						<%= f.label :password %>
+						<%= f.password_field :password %>
+					
+						<%= f.label :password_confirmation %>
+						<%= f.password_field :password_confirmation %>
+					</p>
+				<% end %>
+			</div>
+			<div class="large-6 columns text-right">
+				<%= f.submit "Save User", class: 'button medium success' %>
+			</div>
+			</div>
+		</div>
+		<% end %>

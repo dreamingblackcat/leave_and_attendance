@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 	end
 
 	def new
-		@user = User.new(team_params)
+		@user = User.new
 
 		respond_to do |format|
 		  if @user.save
@@ -18,6 +18,20 @@ class UsersController < ApplicationController
 		  end
 		end
 		
+	end
+
+	def create
+	  @user = User.new(user_params)
+
+	  respond_to do |format|
+	    if @user.save
+	      format.html { redirect_to @user, notice: 'User was successfully created.' }
+	      format.json { render :show, status: :created, location: @user }
+	    else
+	      format.html { render :new }
+	      format.json { render json: @user.errors, status: :unprocessable_entity }
+	    end
+	  end
 	end
 
 	def show
@@ -54,6 +68,6 @@ class UsersController < ApplicationController
 
 	    # Never trust parameters from the scary internet, only allow the white list through.
 	    def user_params
-	      params.require(:user).permit(:name, :employee_no ,:date_of_birth,:nrc_number, :bank_card_number, :nationality, :religion,:gender, :phone_no, :blood_type,  :joined_date,  :left_date, :address, :email)
+	      params.require(:user).permit(:name, :employee_no ,:date_of_birth,:nrc_number, :bank_card_number, :nationality, :religion,:gender, :phone_no, :blood_type,  :joined_date,  :left_date, :address, :email, :password, :password_confirmation, :team_id)
 	    end
 end
