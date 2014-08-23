@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@users = User.all.in_groups_of(4) 
+		@users = User.all.in_groups_of(4,false) 
 	end
 
 	def new
