@@ -1,9 +1,16 @@
+<h3 class="text-center">Employees</h3>
 <div class="container">
 <% @users.each do|users| %>
 	<div class="row">
 	<% users.each do|user| %>
 	  <div class="large-3 columns">
-	  	<%= user.inspect %>
+	  	<div class="user_name"><%= user.name %></div>
+	  	<img src="#" width='100px' height='100px' alt="">
+	  	<div class="user_email"><%= user.email %></div>
+	  	<div class="user_links">
+	  		<%= link_to "View", user_path(user),class: 'button tiny success' %>
+	  		<%= link_to "Edit", user_path(user),class: 'button tiny alert' %>
+	  	</div>
 	  </div>
 	<% end %>
 	</div>	
