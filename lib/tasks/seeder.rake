@@ -15,7 +15,7 @@ namespace :seeder do
 	  	user.gender = ["Male", "Female"].sample
 	  	user.address = "User #{i} address"
 	  	user.phone_no = rand(10000..20000)
-	  	user.team_id = Team.all.sample
+	  	user.team_id = Team.all.sample.id
 	  	user.blood_type = ["A", "AB", "O", "B"].sample
 	  	user.save!
 	  	puts "Saving user#{i}"
