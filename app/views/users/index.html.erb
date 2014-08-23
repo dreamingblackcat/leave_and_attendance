@@ -1,0 +1,11 @@
+<div class="container">
+<% @users.each do|users| %>
+	<div class="row">
+	<% users.each do|user| %>
+	  <div class="large-3 columns">
+	  	<%= user.inspect %>
+	  </div>
+	<% end %>
+	</div>	
+<% end %>
+</div>
