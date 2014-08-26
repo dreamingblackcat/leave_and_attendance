@@ -72,7 +72,7 @@
 			</div>
 			<div class="row">
 			<div class="large-6 columns">
-				<% unless @user.password %>
+				<% if @user.encrypted_password.blank? %>
 					<h5>Enter Credentials</h5>
 					<p>
 						<%= f.label :password %>
