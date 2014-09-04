@@ -30,6 +30,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'kaminari'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
