@@ -5,7 +5,7 @@
     <tr>
       <th>Application date</th>
       <th>User</th>
-      <th>Granted</th>
+      <th>Leave Dates</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,7 +14,7 @@
     <% @leave_applications.each do |leave_application| %>
       <tr>
         <td><%= leave_application.application_date %></td>
-        <td><%= leave_application.user %></td>
+        <td><%= leave_application.user.name%></td>
         <td>
             <% leave_application.leave_dates.each do|ld| %>
                 <%= ld.date %> ,
