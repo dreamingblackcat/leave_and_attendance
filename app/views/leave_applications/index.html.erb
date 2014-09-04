@@ -15,7 +15,11 @@
       <tr>
         <td><%= leave_application.application_date %></td>
         <td><%= leave_application.user %></td>
-        <td><%= leave_application.granted %></td>
+        <td>
+            <% leave_application.leave_dates.each do|ld| %>
+                <%= ld.date %> ,
+            <% end %>
+        </td>
         <td><%= link_to 'Show', leave_application %></td>
         <td><%= link_to 'Edit', edit_leave_application_path(leave_application) %></td>
         <td><%= link_to 'Destroy', leave_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>

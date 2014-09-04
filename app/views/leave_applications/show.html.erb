@@ -11,8 +11,10 @@
 </p>
 
 <p>
-  <strong>Granted:</strong>
-  <%= @leave_application.granted %>
+  <strong>Leave Dates:</strong>
+  <% @leave_application.leave_dates.each do|ld| %>
+	<p><%= ld.date %> => <%= ld.leave_period %></p>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_leave_application_path(@leave_application) %> |

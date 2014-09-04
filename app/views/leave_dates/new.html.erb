@@ -1,0 +1,3 @@
+<% fields_for 'leave_application[leave_dates_attributes][]', @leave_date do |child_form| %>
+ <%= render :partial => '/leave_dates/form', :locals => { :f => child_form, :leave_date => @leave_date } %>
+<% end %>

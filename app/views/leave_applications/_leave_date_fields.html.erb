@@ -1,0 +1,5 @@
+
+  <p><%= f.label :date %></p>
+  <p><%= f.date_select :date %></p>
+  <p><%= f.collection_select :leave_period_id,LeavePeriod.all, :id, :name %> </p>
+  <%= f.link_to_remove "Remove this date" %>
