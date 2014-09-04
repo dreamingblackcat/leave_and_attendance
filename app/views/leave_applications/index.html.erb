@@ -1,0 +1,29 @@
+<h1>Listing leave_applications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Application date</th>
+      <th>User</th>
+      <th>Granted</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leave_applications.each do |leave_application| %>
+      <tr>
+        <td><%= leave_application.application_date %></td>
+        <td><%= leave_application.user %></td>
+        <td><%= leave_application.granted %></td>
+        <td><%= link_to 'Show', leave_application %></td>
+        <td><%= link_to 'Edit', edit_leave_application_path(leave_application) %></td>
+        <td><%= link_to 'Destroy', leave_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Leave application', new_leave_application_path %>

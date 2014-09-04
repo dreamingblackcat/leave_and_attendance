@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2014-09-04
+  leave_period_id: 
+  granted: false
+  leave_application_id: 
+
+two:
+  date: 2014-09-04
+  leave_period_id: 
+  granted: false
+  leave_application_id: 

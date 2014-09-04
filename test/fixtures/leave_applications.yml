@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  application_date: 2014-09-04
+  user_id: 
+  granted: false
+
+two:
+  application_date: 2014-09-04
+  user_id: 
+  granted: false
