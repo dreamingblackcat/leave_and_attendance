@@ -13,17 +13,20 @@
 
   <div class="field">
     <%= f.label :application_date %><br>
-    <%= f.date_select :application_date %>
+    <%= f.text_field :application_date ,class: "dpk"%>
   </div>
   <div class="field">
     <%= f.label :user_id %><br>
     <%= f.collection_select :user_id,User.all,:id,:name %>
   </div>
-  <div class="leave_dates">
+  <div class="leave_dates panel callout radius">
+    <div class="fields_count"></div>
     <%= f.fields_for :leave_dates %>
-    <p><%= f.link_to_add "Add a date",:leave_dates%></p>
+    <p><%= f.link_to_add "Add a date",:leave_dates,class: "button tiny primary" %></p>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions row">
+    <div class="large-4 large-offset-4 columns">
+      <%= f.submit 'Save',class: 'button tiny primary'%>
+    </div>
   </div>
 <% end %>

@@ -1,5 +1,11 @@
-
-  <p><%= f.label :date %></p>
-  <p><%= f.date_select :date %></p>
-  <p><%= f.collection_select :leave_period_id,LeavePeriod.all, :id, :name %> </p>
-  <%= f.link_to_remove "Remove this date" %>
+<fieldset>
+  <%= f.link_to_remove "Remove this date",class: 'button tiny alert' %>
+  <div class="row">
+  <div class="large-6 columns">
+  	<%= f.label :date %>
+  	<%= f.text_field :date,class: 'dpk' %></div>
+  <div class="large-6 columns">
+  	<%= f.label :leave_period_id,"period" %>
+  	<%= f.collection_select :leave_period_id,LeavePeriod.all, :id, :name %> </div>
+  </div>
+</fieldset>

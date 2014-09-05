@@ -1,7 +1,7 @@
 <div class='leave_date' id='<%= leave_date.id %>'>
   <h3>leave_date</h3>
   <p><%= f.label :date %></p>
-  <p><%= f.date_select :date %></p>
+  <p><%= f.text_field :date,class: 'dpk' %></p>
   <p><%= f.collection_select :leave_period_id,Team.all, :id, :name %> </p>
   <p><a href='#' class='leave_date-remove'>Remove the leave_date above</a></p>
 </div>

@@ -13,8 +13,32 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
 //= require jquery_nested_form
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ 
+	$(document).foundation();
+	var total_dates = $('.leave_dates').find('.fields').length;
+	$('.fields_count').text(total_dates+" days");
+	$('.dpk').Zebra_DatePicker();
+	$(document).on('nested:fieldAdded', function(event){
+	  // this field was just inserted into your form
+	  var field = event.field; 
+	  // it's a jQuery object already! Now you can find date input
+	  var dateField = field.find('input.dpk');
+	  $('.fields_count').text(field.parent().parent().find('.fields').length+" days");
+	  console.log(field.parent().parent().find('.fields').length);
+	  // and activate datepicker on it
+	  dateField.Zebra_DatePicker();
+	})
+
+	$(document).on('nested:fieldRemoved',function(event){
+		var field = event.field;
+		var total_dates = field.parent().parent().find('.fields').length-1;
+		$('.fields_count').text(total_dates+" days"); 
+		console.log(field.parent().parent().find('.fields').length-1);
+		field.remove();
+	});
+
+});
+

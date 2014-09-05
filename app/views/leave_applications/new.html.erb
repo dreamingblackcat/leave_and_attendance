@@ -1,5 +1,13 @@
-<h1>New leave_application</h1>
+<h1 class="text-center">New leave_application</h1>
+<div class="user-show-container panel callout radius">
+	<%= render 'form' %>
+</div>
 
-<%= render 'form' %>
+<div class="row">
+	<div class="large-6 large-offset-5 columns">
+		<div class="pull-right">
+				<%= link_to 'Back', leave_applications_path , class: 'button large success text-left' %>
+		</div>
+	</div>
+</div>
 
-<%= link_to 'Back', leave_applications_path %>
