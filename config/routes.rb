@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :leave_applications
   resources :leave_dates
+  get 'leave_analysis', to: 'leave_analysis#index',as: :leave_analysis
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

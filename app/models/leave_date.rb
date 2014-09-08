@@ -18,7 +18,7 @@ class LeaveDate < ActiveRecord::Base
   	self.date.year
   end
 
-  def self.leaves_count_for_each_date(list,options={})
+  def self.leaves_count_hash(list,options={})
   	default_options = {
   		year_limit: Date.today.year,
   		format: "%Y-%-m-%d"
@@ -29,7 +29,7 @@ class LeaveDate < ActiveRecord::Base
 	  		record.date.strftime(options[:format])
 	  	end
 	  	list.each do|key,value|
-	  		list[key] = value.count
+	  		list[key] = value.count.to_s.rjust(3,"0")
 	  	end
 	  	list
 	 else
@@ -45,7 +45,7 @@ class LeaveDate < ActiveRecord::Base
 	 				record.date.day
 	 			end
 	 			list[year][month].each do|day,v|
-	 				list[year][month][day] = v.count
+	 				list[year][month][day] = v.count.to_s.rjust(3,"0")
 	 			end
 	 		end
 	 	end
