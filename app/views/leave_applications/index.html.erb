@@ -16,7 +16,7 @@
     <% @leave_applications.each do |leave_application| %>
       <tr>
         <td><%= leave_application.application_date %></td>
-        <td><%= leave_application.user.name%></td>
+        <td><%= link_to leave_application.user.name, user_path(leave_application.user)%></td>
         <td>
             <% leave_application.leave_dates.each do|ld| %>
                 <%= ld.date %> ,
@@ -29,7 +29,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= paginate @leave_applications %>
 <br>
 
 <%= link_to 'New Leave application', new_leave_application_path,class: 'button large success radius' %>
