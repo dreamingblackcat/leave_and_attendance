@@ -1,6 +1,7 @@
 class LeaveDate < ActiveRecord::Base
   belongs_to :leave_period
   belongs_to :leave_application
+  delegate :user, :to => :leave_application, :allow_nil => false
   scope :granted, lambda {where(granted: true)}
   def self.limit_by_year(year = Date.today.year)
 
