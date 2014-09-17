@@ -2,6 +2,9 @@ class LeaveDate < ActiveRecord::Base
   belongs_to :leave_period
   belongs_to :leave_application
   delegate :user, :to => :leave_application, :allow_nil => false
+  # scope :eager_loaded_user, lambda{ User.pre_load}
+  scope :half_leave_count, lambda {where leave_period.name == "morning" || leave_period.name == "afternoon"}
+  scope :full_leave_count, lambda {where leave_period.name == "whole day"}
   # scope :granted, lambda {where(granted: true)}
   # scope :paid_leave, lambda{where(paid_leave: true)}
   def self.limit_by_year(year = Date.today.year)

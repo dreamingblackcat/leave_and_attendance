@@ -1,0 +1,254 @@
+/api/leave_dates?year=2014;
+
+"leave_dates":{
+	"august":{
+			"2014-8-10":{
+				"half_leave_count": 1,
+				"full_leave_count": 2,
+				"users": {
+					"half_leave": [
+						{
+							"id": 1,
+							"name": "thiha",
+						}
+					],
+					"full_leave": [
+						{
+							"id": 2,
+							"name": "thura"
+						},
+						{
+							"id": 3,
+							"name": "wunna"
+						}
+					]
+				}
+			},
+			"2014-8-9":{
+				"half_leave_count": 1,
+				"full_leave_count": 2,
+				"users": [
+					{
+						"id": 1,
+						"name": "thiha",
+					},
+					{
+						"id": 2,
+						"name": "thura"
+					},
+					{
+						"id": 3,
+						"name": "wunna"
+					}
+				]
+			},
+			"2014-8-8":{
+				"half_leave_count": 0,
+				"full_leave_count": 0,
+				"users": []
+			},
+			"2014-8-7":{
+				"half_leave_count": 1,
+				"full_leave_count": 0,
+				"users": {
+					"half_leave": [
+					{
+						"id": 1,
+						"name": "thiha"
+					}
+					],
+					"full_leave": []
+				}
+			}
+		},
+	"september":{
+		"2014-9-10":{
+			"half_leave_count": 1,
+			"full_leave_count": 2,
+			"users": {
+				"half_leave": [
+					{
+						"id": 1,
+						"name": "thiha",
+					}
+				],
+				"full_leave": [
+					{
+						"id": 2,
+						"name": "thura"
+					},
+					{
+						"id": 3,
+						"name": "wunna"
+					}
+				]
+			}
+		},
+		"2014-9-9":{
+			"half_leave_count": 1,
+			"full_leave_count": 2,
+			"users": [
+				{
+					"id": 1,
+					"name": "thiha",
+				},
+				{
+					"id": 2,
+					"name": "thura"
+				},
+				{
+					"id": 3,
+					"name": "wunna"
+				}
+			]
+		},
+		"2014-9-8":{
+			"half_leave_count": 0,
+			"full_leave_count": 0,
+			"users": []
+		},
+		"2014-9-7":{
+			"half_leave_count": 1,
+			"full_leave_count": 0,
+			"users": {
+				"half_leave": [
+				{
+					"id": 1,
+					"name": "thiha"
+				}
+				],
+				"full_leave": []
+			}
+		}
+	}
+	...
+}
+
+/api/leave_dates?year=2014;month=august;
+"leave_dates":{
+		"2014-8-10":{
+			"half_leave_count": 1,
+			"full_leave_count": 2,
+			"users": {
+				"half_leave": [
+					{
+						"id": 1,
+						"name": "thiha",
+					}
+				],
+				"full_leave": [
+					{
+						"id": 2,
+						"name": "thura"
+					},
+					{
+						"id": 3,
+						"name": "wunna"
+					}
+				]
+			}
+		},
+		"2014-8-9":{
+			"half_leave_count": 1,
+			"full_leave_count": 2,
+			"users": [
+				{
+					"id": 1,
+					"name": "thiha",
+				},
+				{
+					"id": 2,
+					"name": "thura"
+				},
+				{
+					"id": 3,
+					"name": "wunna"
+				}
+			]
+		},
+		"2014-8-8":{
+			"half_leave_count": 0,
+			"full_leave_count": 0,
+			"users": []
+		},
+		"2014-8-7":{
+			"half_leave_count": 1,
+			"full_leave_count": 0,
+			"users": {
+				"half_leave": [
+				{
+					"id": 1,
+					"name": "thiha"
+				}
+				],
+				"full_leave": []
+			}
+		}
+	},
+
+/api/leave_dates?user_id=1;year=2014
+
+"leave_dates":{
+	"meta": {
+			"user": {
+				"id": 1,
+				"name": "thiha"
+			}
+		},
+	"data": {
+		"august":{
+			"2014-8-10": {
+				"type": "half_leave"
+			},
+			"2014-8-11": {
+				"type": "full_leave"
+			},
+			"2014-8-17": {
+				"type": "half_leave"
+			},
+			"2014-8-30": {
+				"type": "full_leave"
+			}
+		},
+		"september":{
+			"2014-9-10": {
+				"type": "half_leave"
+			},
+			"2014-9-11": {
+				"type": "full_leave"
+			},
+			"2014-9-17": {
+				"type": "half_leave"
+			},
+			"2014-9-30": {
+				"type": "full_leave"
+			}
+		}
+	}
+	
+}
+
+/api/leave_dates?user_id=1;year=2014;month=august
+
+"leave_dates":{
+		"meta": {
+			"user": {
+				"id": 1,
+				"name": "thiha"
+			}
+		},
+		"data":{
+			"2014-8-10": {
+				"type": "half_leave"
+			},
+			"2014-8-11": {
+				"type": "full_leave"
+			},
+			"2014-8-17": {
+				"type": "half_leave"
+			},
+			"2014-8-30": {
+				"type": "full_leave"
+			}
+		}
+}
