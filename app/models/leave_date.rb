@@ -2,7 +2,8 @@ class LeaveDate < ActiveRecord::Base
   belongs_to :leave_period
   belongs_to :leave_application
   delegate :user, :to => :leave_application, :allow_nil => false
-  scope :granted, lambda {where(granted: true)}
+  # scope :granted, lambda {where(granted: true)}
+  # scope :paid_leave, lambda{where(paid_leave: true)}
   def self.limit_by_year(year = Date.today.year)
 
   	start = Date.new(year,1,1)
@@ -10,13 +11,17 @@ class LeaveDate < ActiveRecord::Base
   	where(date: start..finish)
   end
 
+  def self.limit_by_paid_leave(paid)
+  	joins(:leave_application).where(leave_applications: {paid_leave: paid})
+  end
+  def self.limit_by_granted(granted)
+  	where(granted: granted)
+  end
+
   def self.limit_by_month_and_year(month = Date.today.month,year =Date.today.year)
   	start = Date.new(year,month,1)
   	finish = start.end_of_month
   	where(date: start..finish)
-  end
-  def get_year
-  	self.date.year
   end
 
   def self.leaves_count_hash(list,options={})

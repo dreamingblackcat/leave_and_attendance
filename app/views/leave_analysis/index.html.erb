@@ -7,24 +7,20 @@
 			</div>
 			<div class="large-6 columns">
 				<h3 class="text-center">Users</h3>
-				<div class="row">
-					<div class="large-3 columns"><a href="# class="button tiny">click me</a></div>
-					<div class="large-3 columns"><a href="# class="button tiny">click me</a></div>
-					<div class="large-3 columns"><a href="# class="button tiny">click me</a></div>
-					<div class="large-3 columns"><a href="# class="button tiny">click me</a></div>
-				</div>
-				<div class="row">
-					<div class="large-3 columns"><a href="# class="button tiny">click me</a></div>
-					<div class="large-3 columns"><a href="# class="button tiny">click me</a></div>
-					<div class="large-3 columns"><a href="# class="button tiny">click me</a></div>
-					<div class="large-3 columns"><a href="# class="button tiny">click me</a></div>
-				</div>
-				<div class="row">
-					<div class="large-3 columns"><a href="# class="button tiny">click me</a></div>
-					<div class="large-3 columns"><a href="# class="button tiny">click me</a></div>
-					<div class="large-3 columns"><a href="# class="button tiny">click me</a></div>
-					<div class="large-3 columns"><a href="# class="button tiny">click me</a></div>
-				</div>
+				<% User.all.in_groups_of(4,false).each do|users| %>
+				 	<div class="row">
+					<% for user in users %>
+						<div class="large-3 columns">
+							<%= link_to user.name, "#",class: "user-for-leave",data: {id: user.id}%>
+						</div>
+					<% end %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-6 columns" id="user-leave-count-chart">
+				
 			</div>
 		</div>
 	</div>
