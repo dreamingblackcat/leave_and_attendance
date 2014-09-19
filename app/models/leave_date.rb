@@ -7,9 +7,9 @@ class LeaveDate < ActiveRecord::Base
   scope :full_leave_count, lambda {where leave_period.name == "whole day"}
   # scope :granted, lambda {where(granted: true)}
   # scope :paid_leave, lambda{where(paid_leave: true)}
+  #-TODO sanitize parameters passed to query methods
   def self.limit_by_year(year = Date.today.year)
-
-  	start = Date.new(year,1,1)
+  	start = Date.new(year.to_i,1,1)
   	finish = start.end_of_year
   	where(date: start..finish)
   end
@@ -22,7 +22,7 @@ class LeaveDate < ActiveRecord::Base
   end
 
   def self.limit_by_month_and_year(month = Date.today.month,year =Date.today.year)
-  	start = Date.new(year,month,1)
+  	start = Date.new(year.to_i,month,1)
   	finish = start.end_of_month
   	where(date: start..finish)
   end
@@ -62,5 +62,6 @@ class LeaveDate < ActiveRecord::Base
 	 end
 
   end
+
 
 end
