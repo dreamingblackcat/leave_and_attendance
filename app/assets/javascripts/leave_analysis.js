@@ -1,12 +1,13 @@
 $(function(){
-	var totalUrl = "/leave_analysis.json";
+	var totalUrl = "api/leave_dates.json?year=2014;";
 	var draw_chart = function(url){
 		$("#leave-count-chart").html("");
 		$.getJSON(url,function(response){
-			var leave_data = new Array();
+			var full_leave_data = new Array();
+			var half_leave_data = new Array();
 			console.log(response);
-			$.each(response,function(key,value){
-				leave_data.push({month: key,leave_taken: value});
+			$.each(response,function(month,dateHash){
+				full_leave_data.push({month: month,leave_taken: value});
 			})
 			var lineChart = new Morris.Line({
 			  lineWIdth: '10px',
@@ -18,7 +19,7 @@ $(function(){
 			  // The name of the data record attribute that contains x-values.
 			  xkey: 'month',
 			  // A list of names of data record attributes that contain y-values.
-			  ykeys: ['leave_taken'],
+			  ykeys: ['leave_taken'],['half_leave']
 			  // Labels for the ykeys -- will be displayed when you hover over the
 			  // chart.
 			  labels: ['Leaves Taken']
@@ -29,7 +30,7 @@ $(function(){
 	
 	$('.user-for-leave').on("click",function(event){
 		var userId = $(this).data('id');
-		var url = "/leave_analysis.json"+"?user_id="+userId;
+		var url = "api/leave_dates.json"+"?user_id="+userId;+";year=2014";
 		draw_chart(url);
 		event.preventDefault();
 	});

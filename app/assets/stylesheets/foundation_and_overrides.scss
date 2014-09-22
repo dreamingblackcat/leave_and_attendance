@@ -814,10 +814,10 @@ $magellan-padding: 0 !important;
 
 // Panels
 
-// $include-html-panel-classes: $include-html-classes;
+$include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-// $panel-bg: scale-color(#fff, $lightness: -5%);
+ $panel-bg: #6A838B;
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -834,7 +834,7 @@ $magellan-padding: 0 !important;
 // $panel-font-color-alt: #fff;
 
 // $panel-header-adjust: true;
-// $callout-panel-link-color: $primary-color;
+ $callout-panel-link-color: $primary-color;
 
 // Pricing Tables
 
@@ -1192,7 +1192,7 @@ $sub-nav-active-cursor: default;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
+ $topbar-bg-color: #729BA0;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin

@@ -21,8 +21,8 @@ class LeaveDate < ActiveRecord::Base
   	where(granted: granted)
   end
 
-  def self.limit_by_month_and_year(month = Date.today.month,year =Date.today.year)
-  	start = Date.new(year.to_i,month,1)
+  def self.limit_by_year_and_month(year =Date.today.year, month = Date.today.month)
+  	start = Date.new(year.to_i,month.to_i,1)
   	finish = start.end_of_month
   	where(date: start..finish)
   end

@@ -13,7 +13,7 @@ class LeaveDatesController < ApplicationController
 	  unless leave_application.leave_date.exists?(params[:id])
 	    render :text => { :success => false, :msg => 'the child was not found.' }.to_json and return
 	  end
-	  if leave_application.leave_date.destroy(params[:id]) // Rails < 2.3.5, if leave_application.leave_date.destroy(Child.find(params[:id]))
+	  if leave_application.leave_date.destroy(params[:id])
 	render :text => { :success => true }.to_json
 	  else
 	    render :text => { :success => false, :msg => 'something unexpected happened.' }.to_json
