@@ -11,6 +11,13 @@ Rails.application.routes.draw do
       resources :leave_dates, only: [:index]
   end
 
+  namespace :employee do
+      get ":user_id/dashboard", to: "dashboard#index",as: :dashboard
+      get ":user_id/leave_applications",to: "leave_applications#index",as: :leave_applications
+      get ":user_id/leave_application/new",to: "leave_applications#new",as: :new_leave_application
+      get ":user_id/leave_analysis",to: "leave_analysis#index",as: :leave_analysis
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

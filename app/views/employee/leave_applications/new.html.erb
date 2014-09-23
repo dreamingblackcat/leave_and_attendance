@@ -1,0 +1,34 @@
+<div class="user-show-container panel callout radius">
+<%= nested_form_for(@leave_application) do |f| %>
+  <% if @leave_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@leave_application.errors.count, "error") %> prohibited this leave_application from being saved:</h2>
+
+      <ul>
+      <% @leave_application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :application_date %><br>
+    <%= f.text_field :application_date ,class: "dpk"%>
+  </div>
+  <div class="field">
+    <%= f.label :reason %><br>
+    <%= f.text_area :reason,rows: 4%>
+  </div>
+  <div class="leave_dates panel callout radius">
+    <div class="fields_count"></div>
+    <%= f.fields_for :leave_dates %>
+    <p><%= f.link_to_add "Add a date",:leave_dates,class: "button tiny primary" %></p>
+  </div>
+  <div class="actions row">
+    <div class="large-4 large-offset-4 columns">
+      <%= f.submit 'Save',class: 'button tiny primary'%>
+    </div>
+  </div>
+<% end %>
+</div>

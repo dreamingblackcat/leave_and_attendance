@@ -1,0 +1,38 @@
+<section class="top-bar-section">
+  <!-- Left Nav Section -->
+  <ul class="left">
+    <li class="divider"></li>
+    <li class="<%= is_active?(employee_leave_analysis_path) %>"><%= link_to "My Leave Status", employee_leave_analysis_path %></li>
+    <li class="divider"></li>
+    <li class="<%= is_active?(employee_leave_applications_path) %>"><%= link_to "My Leave Applications", employee_leave_applications_path %></li>
+    <li class="divider"></li>
+    <li class="<%= is_active?(employee_new_leave_application_path) %>"><%= link_to "New Leave Application", employee_new_leave_application_path %></li>
+    <li class="divider"></li>
+    <li class="<%= is_active?(employee_dashboard_path) %>"><%= link_to "Profile", employee_dashboard_path %></li>
+    <li class="divider"></li>
+  </ul>
+
+  <!-- Right Nav Section -->
+  <ul class="right">
+  <li class="has-form">
+      <form>
+        <div class="row collapse">
+          <div class="small-8 columns">
+            <input type="text">
+          </div>
+          <div class="small-4 columns">
+            <a href="#" class="alert button">Search</a>
+          </div>
+        </div>
+      </form>
+    </li>
+    <li class="divider show-for-small"></li>
+    <li class="has-form">
+    <% unless current_user.nil? %>
+      <%= link_to "Log out", destroy_session_path(current_user),method: :delete %>
+    <%else %>
+      <%= link_to "Log in", new_user_session_path() %>
+    <% end %>
+    </li>
+  </ul>
+</section>
