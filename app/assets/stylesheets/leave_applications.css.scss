@@ -1,10 +1,38 @@
 // Place all the styles related to the LeaveApplications controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// // You can use Sass (SCSS) here: http://sass-lang.com/
+// @import "foundation/variables";
+@import "foundation/components/global";
+@import "foundation/components/alert-boxes";
+@import "foundation_and_overrides";
+$theme-color: #729ba0;
+
 .dpk{
 	display: inline;
 }
 
 .themed-panel{
 	
+}
+
+// .themed-alert { @include alert(#ff6c3c); }
+.themed-alert {
+  @include alert-base;
+  @include alert-style(#ff6c3c);
+  .close { @include alert-close; }
+}
+// alert-box close button hack
+.alert-box{
+	.close{
+		padding-bottom: 5px;
+		height: 40%;
+	}
+}
+
+.themed-label{
+	padding-left: 2px;
+	color: #FFF;
+	display: block;
+	background-color: $secondary-color;
+	border-radius: 3px 3px 3px 3px;
 }

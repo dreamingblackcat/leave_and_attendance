@@ -8,7 +8,7 @@
 			<%= image_tag(user.avatar_url, class: 'avatar-image')%>	
 	  	<div class="user_email"><%= user.email %></div>
 	  	<div class="user_links">
-	  		<%= link_to "View", user_path(user),class: 'button tiny success' %>
+	  		<%= link_to "View", user_path(user),class: 'button tiny secondary' %>
 	  		<%= link_to "Edit", edit_user_path(user),class: 'button tiny alert' %>
 	  	</div>
 	  </div>

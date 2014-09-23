@@ -59,10 +59,14 @@ $body-font-weight: $font-weight-normal;
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: #008CBA;
-// $secondary-color: #e7e7e7;
-// $alert-color: #f04124;
+$primary-color: #729baf;
+$secondary-color: #95a5a6;
+//custom var by me
+$form-component-bg-color: #d2ece7;
+ // $alert-color: #f04124;
+$alert-color: #c0392b;
 // $success-color: #43AC6A;
+ $success-color: #1abc9c;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
 
@@ -527,8 +531,10 @@ $primary-color: #008CBA;
 // $form-label-bottom-margin: 0;
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
+$input-font-color: darken($secondary-color, 30%);
 // $input-font-size: rem-calc(14);
 // $input-bg-color: #fff;
+$input-bg-color: $form-component-bg-color;
 // $input-focus-bg-color: scale-color(#fff, $lightness: -2%);
 // $input-border-color: scale-color(#fff, $lightness: -20%);
 // $input-focus-border-color: scale-color(#fff, $lightness: -40%);
@@ -553,11 +559,14 @@ $primary-color: #008CBA;
 
 // We use these to style the prefix and postfix input elements
 // $input-prefix-bg: scale-color(#fff, $lightness: -5%);
+$input-prefix-bg: scale-color($primary-color, $lightness: -5%);
 // $input-prefix-border-color: scale-color(#fff, $lightness: -20%);
+$input-prefix-border-color: scale-color($secondary-color, $lightness: -20%);
 // $input-prefix-border-size: 1px;
 // $input-prefix-border-type: solid;
 // $input-prefix-overflow: hidden;
 // $input-prefix-font-color: #333;
+ $input-prefix-font-color: $primary-color;
 // $input-prefix-font-color-alt: #fff;
 
 // We use these to style the error states for inputs and labels
@@ -575,6 +584,7 @@ $primary-color: #008CBA;
 
 // Select variables
 // $select-bg-color: #fafafa;
+$select-bg-color: $form-component-bg-color;
 // $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%);
 
 // Inline Lists
