@@ -23,29 +23,20 @@
         </ul>
       <%= render partial: 'layouts/shared/primary_nav' %>
       </nav>
+      <!-- TODO# Used Differenet partials here, can dry out using a helper-->
         <% if flash[:error] %>
-          <div id="flash" data-alert class="alert-box warning text-center">
-                <%= h flash[:error] %>
-            <a href="#" class="close">&times;</a>
-          </div>       
+          <%= render partial: "layouts/shared/flash_error"  %>   
         <% end %>
         <% if flash[:notice] %>
-            <div id="flash" data-alert class="alert-box success text-center">
-                <%= h flash[:notice] %>
-            <a href="#" class="close">&times;</a>
-           </div>   
+           <%= render partial: "layouts/shared/flash_notice" %>
         <% end %>
         <% if flash[:alert] %>
-            <div id="flash" data-alert class="alert-box warning text-center">
-                <%= h flash[:alert] %>
-            <a href="#" class="close">&times;</a>
-           </div>   
+            <%= render partial: "layouts/shared/flash_alert" %>  
         <% end %>
 
     <div class="yield-content row">
-        <article class="large-10 columns large-offset-1">
-          
-        <%= yield %>
+        <article class="large-10 columns large-offset-1">          
+          <%= yield %>
         </article>
     </div>
     <%= javascript_include_tag "application" %>
