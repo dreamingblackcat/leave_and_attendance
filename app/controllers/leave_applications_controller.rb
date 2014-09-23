@@ -5,6 +5,7 @@ class LeaveApplicationsController < ApplicationController
   # GET /leave_applications.json
   def index
     @leave_applications = LeaveApplication.page(params[:page])
+    authorize @leave_applications
   end
 
   # GET /leave_applications/1
