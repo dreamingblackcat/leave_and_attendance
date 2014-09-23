@@ -2,13 +2,13 @@
   <!-- Left Nav Section -->
   <ul class="left">
     <li class="divider"></li>
-    <li class="active"><%= link_to "Leave Analysis", leave_analysis_path %></li>
+    <li class="<%= is_active?(leave_analysis_path) %>"><%= link_to "Leave Analysis", leave_analysis_path %></li>
     <li class="divider"></li>
-    <li><%= link_to "Leave Applications", leave_applications_path %></li>
+    <li class="<%= is_active?(leave_applications_path) %>"><%= link_to "Leave Applications", leave_applications_path %></li>
     <li class="divider"></li>
-    <li><%= link_to "Teams", teams_path %></li>
+    <li class="<%= is_active?(teams_path) %>"><%= link_to "Teams", teams_path %></li>
     <li class="divider"></li>
-    <li><%= link_to "Employees", users_path %></li>
+    <li class="<%= is_active?(users_path) %>"><%= link_to "Employees", users_path %></li>
     <li class="divider"></li>
   </ul>
 
