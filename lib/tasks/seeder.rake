@@ -1,3 +1,11 @@
+def rand_string(size,range)
+	base = ""
+	size.times do
+		base.concat(range.to_a.sample.to_s)
+	end
+	base
+end
+
 namespace :seeder do
   desc "Seed User table"
   task user: [:environment, :team] do
@@ -9,6 +17,9 @@ namespace :seeder do
 	  	user.password = user.name
 	  	user.password_confirmation = user.password
 	  	user.joined_date = rand((3.years.ago)..(0.years.ago))
+	  	user.nrc_number = "#{rand(1..14)}/#{rand_string(3,("a".."z"))}(n)#{rand_string(6,(1..9))}"
+	  	user.bank_card_number = "#{rand_string(12,(1..9))}"
+	  	user.date_of_birth = (rand(20..30).years.ago - rand(10..300).days).to_date
 	  	user.employee_no = "AW-#{i}"
 	  	user.nationality = ["Myanmar","Japan","Karen","Shan","Chin"].sample
 	  	user.religion = ["Buddhist", "Christian", "Islam", "Hindu"].sample

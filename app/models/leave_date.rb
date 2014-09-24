@@ -1,7 +1,9 @@
 class LeaveDate < ActiveRecord::Base
+  before_create :defaults
   belongs_to :leave_period
   belongs_to :leave_application
   delegate :user, :to => :leave_application, :allow_nil => false
+  validates :date, presence: true
   # scope :eager_loaded_user, lambda{ User.pre_load}
   scope :half_leave_count, lambda {where leave_period.name == "morning" || leave_period.name == "afternoon"}
   scope :full_leave_count, lambda {where leave_period.name == "whole day"}
@@ -62,6 +64,9 @@ class LeaveDate < ActiveRecord::Base
 	 end
 
   end
-
+  private
+    def defaults
+      self.granted = false
+    end
 
 end
