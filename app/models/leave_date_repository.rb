@@ -25,8 +25,14 @@ class LeaveDateRepository
 		unless params.nil?
 			if(params[:user_id])
 				user = User.find(params[:user_id])
-				leave_dates = user.leave_dates.eager_load(:leave_period).joins(leave_application: :user)
-				leave_dates = leave_dates.limit_by_year(params[:year]) if params[:year]
+				leave_dates = user.leave_dates.eager_load(:leave_period)
+				if params[:year] 
+					if params[:month] then
+						leave_dates = leave_dates.limit_by_year_and_month(params[:year],params[:month])
+					else
+						leave_dates = leave_dates.limit_by_year(params[:year]) 
+					end
+				end
 				leave_dates = leave_dates.limit_by_paid_leave(params[:paid_leave]) if params[:paid_leave]
 				leave_dates = leave_dates.limit_by_granted(params[:granted]) if params[:granted]
 				leave_dates

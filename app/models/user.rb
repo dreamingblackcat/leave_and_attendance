@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   belongs_to :team
   mount_uploader :avatar, AvatarUploader
   has_many :leave_applications, dependent: :destroy
-  has_many :leave_dates, through: :leave_application
+  has_many :leave_dates, through: :leave_applications
 
   validates :name, presence: true
   validates :employee_no,presence: true 
