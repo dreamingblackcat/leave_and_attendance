@@ -67,6 +67,7 @@ class LeaveDate < ActiveRecord::Base
   private
     def defaults
       self.granted = false
+      true
     end
 
 end

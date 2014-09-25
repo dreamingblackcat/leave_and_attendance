@@ -25,9 +25,8 @@ class LeaveApplicationsController < ApplicationController
   # POST /leave_applications.json
   def create
     @leave_application = LeaveApplication.new(leave_application_params)
-
     respond_to do |format|
-      if @leave_application.save
+      if @leave_application.save!
         format.html { redirect_to @leave_application, notice: 'Leave application was successfully created.' }
         format.json { render :show, status: :created, location: @leave_application }
       else
@@ -69,6 +68,6 @@ class LeaveApplicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def leave_application_params
-      params.require(:leave_application).permit(:application_date, :user_id, leave_dates_attributes: [:id,:date,:leave_period_id,:_destroy])
+      params.require(:leave_application).permit(:application_date, :reason,:user_id, leave_dates_attributes: [:id,:date,:leave_period_id,:_destroy])
     end
 end
