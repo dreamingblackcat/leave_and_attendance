@@ -1,4 +1,10 @@
 class LeaveApplicationPolicy < ApplicationPolicy
+   class Scope < Scope
+    def resolve
+          
+    end
+  end
+
   def initialize(user,leave_application)
   	@user = user
   	@leave_application = leave_application

@@ -5,7 +5,6 @@ class LeaveApplicationsController < ApplicationController
   # GET /leave_applications.json
   def index
     @leave_applications = LeaveApplication.page(params[:page])
-    authorize @leave_applications
   end
 
   # GET /leave_applications/1
@@ -70,6 +69,6 @@ class LeaveApplicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def leave_application_params
-      params.require(:leave_application).permit(:application_date, :user_id, :granted,leave_dates_attributes: [:id,:date,:leave_period_id,:_destroy])
+      params.require(:leave_application).permit(:application_date, :user_id, leave_dates_attributes: [:id,:date,:leave_period_id,:_destroy])
     end
 end

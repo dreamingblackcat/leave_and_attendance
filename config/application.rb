@@ -20,5 +20,8 @@ module AwitdAttendance1
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.initialize_on_precompile = false
+    config.to_prepare do
+      Devise::SessionsController.layout "public" 
+    end
   end
 end
