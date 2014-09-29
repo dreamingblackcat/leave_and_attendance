@@ -44,7 +44,7 @@ namespace :seeder do
   	end
   end
 
-  task leave_application: [:user,:environment] do
+  task leave_application: [:user,:leave_type,:environment] do
   	LeavePeriod.destroy_all
   	LeaveDate.destroy_all
   	LeaveApplication.destroy_all
@@ -52,13 +52,14 @@ namespace :seeder do
   	lps.push LeavePeriod.create!(name: "morning", start_time: "9:00AM",end_time: "12:00PM")
   	lps.push LeavePeriod.create!(name: "afternoon", start_time: "12:00PM",end_time: "5:30PM")
   	lps.push LeavePeriod.create!(name: "whole day", start_time: "9:00AM",end_time: "5:30PM")
+  	lts = LeaveType.all
  	User.all.each do|user|
  		rand(10..20).times do|i|
 	 		la = LeaveApplication.new
 	 		la.user_id = user.id
 	 		la.application_date = rand(1.years.ago.to_date..Date.today)
 	 		la.reason = "Some random reason #{i}"
-	 		la.paid_leave = [true,false].sample
+	 		la.leave_type_id = lts.sample.id
 	 		la.save!
 	 		puts "Saved a leave applicatoin for #{user}"
 	 		rand(1..3).times do|j|
@@ -71,6 +72,12 @@ namespace :seeder do
 	 		end
 	 	end
  	end
+  end
+
+  task leave_type: :environment do
+  	LeaveType.destroy_all
+  	LeaveType.create(name: "Paid Leave")
+  	LeaveType.create(name: "Normal Leave")
   end
 
 end

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users
   resources :leave_applications
   resources :leave_dates
+  resources :leave_types
   get 'leave_analysis', to: 'leave_analysis#index',as: :leave_analysis
 
   namespace :api do

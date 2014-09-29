@@ -11,22 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825090923) do
+ActiveRecord::Schema.define(version: 20140929083846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "leavings", force: true do |t|
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.text     "reason"
-    t.boolean  "paid_leave"
+  create_table "leave_applications", force: true do |t|
+    t.date     "application_date"
     t.integer  "user_id"
+    t.text     "reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "leave_type_id"
+  end
+
+  add_index "leave_applications", ["user_id"], name: "index_leave_applications_on_user_id", using: :btree
+
+  create_table "leave_dates", force: true do |t|
+    t.date     "date"
+    t.integer  "leave_period_id"
+    t.boolean  "granted"
+    t.integer  "leave_application_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "leavings", ["user_id"], name: "index_leavings_on_user_id", using: :btree
+  add_index "leave_dates", ["leave_application_id"], name: "index_leave_dates_on_leave_application_id", using: :btree
+  add_index "leave_dates", ["leave_period_id"], name: "index_leave_dates_on_leave_period_id", using: :btree
+
+  create_table "leave_periods", force: true do |t|
+    t.string   "name"
+    t.string   "start_time"
+    t.string   "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "leave_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "teams", force: true do |t|
     t.string   "name"
