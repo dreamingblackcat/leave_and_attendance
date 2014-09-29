@@ -11,8 +11,8 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
-      <nav class="top-bar">
+  <body <%= @chart_element.nil? ? "" : "data-chart-element=#{@chart_element}" %>>
+      <nav class="top-bar fixed sticky">
         <ul class="title-area">
           <!-- Title Area -->
           <li class="name">

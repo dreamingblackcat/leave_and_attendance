@@ -2,7 +2,7 @@ class LeaveAnalysisController < ApplicationController
 
 
 	def index
-		
+		@chart_element = "leave-count-chart"
 		respond_to do|format|
 			format.html do
 				leave_dates_collection = LeaveDate.all
