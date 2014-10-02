@@ -39,3 +39,21 @@ $theme-color: #729ba0;
 	background-color: $secondary-color;
 	border-radius: 3px 3px 3px 3px;
 }
+
+.user-key-statuses{
+	margin-top: 10px;
+}
+
+.user-key-status{
+	background-color: $secondary-color;
+	margin-top: 3px;
+}
+
+.date-tag{
+	background-color: cyan;
+}
+
+.user-leave-date-list li{
+	list-style: none;
+	display: inline;
+}

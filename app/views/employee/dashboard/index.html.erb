@@ -6,18 +6,32 @@
 		</div>
 		<div class="large-6 columns">
 		  	<p><%= @user.email %></p>
-		  	<p><%= @user.password %></p>
-		  	<p><%= @user.password_confirmation %></p>
-		  	<p><%= @user.joined_date %></p>
 		  	<p><%= @user.employee_no %></p>
-		  	<p><%= @user.nationality %></p>
-		  	<p><%= @user.religion %></p>
-		  	<p><%= @user.gender %></p>
-		  	<p><%= @user.address %></p>
-		  	<p><%= @user.phone_no %></p>
-		  	<p>"<%= @user.blood_type %>"</p>
-		  	<p><%= @user.team.name %></p>
-
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-5 columns panel callout radius user-key-statuses">
+			<div class="user-key-status">Total Leave Taken This Year: <%= @user.leave_dates.limit_by_year(2014).count %> </div>
+			<div class="user-key-status">
+				Remaining Leaves: <%= 20-@user.leave_dates.limit_by_year(2014).count%> 
+			</div>
+			<div class="user-key-status panel callout radius">
+			<ul class="user-leave-date-list">
+				<% @user.leave_dates.limit_by_year(2014).order("date DESC").each do|ld| %>
+					<li class="date-tag"><%= link_to ld.date, leave_date_path(ld) %></li> 
+				<% end %>
+			</ul>
+			</div>
+		</div>
+		<div class="large-6 columns">
+			<p><%= @user.joined_date %></p>
+			<p><%= @user.nationality %></p>
+			<p><%= @user.religion %></p>
+			<p><%= @user.gender %></p>
+			<p><%= @user.address %></p>
+			<p><%= @user.phone_no %></p>
+			<p>"<%= @user.blood_type %>"</p>
+			<p><%= @user.team.name %></p>
 		</div>
 	</div>
 </div>
