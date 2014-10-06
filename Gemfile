@@ -35,6 +35,8 @@ gem 'nested_form'
 gem 'raphael-rails'
 gem 'morrisjs-rails'
 gem 'pundit'
+gem 'prawn'
+gem 'prawn-table'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

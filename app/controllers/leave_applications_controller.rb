@@ -10,6 +10,16 @@ class LeaveApplicationsController < ApplicationController
   # GET /leave_applications/1
   # GET /leave_applications/1.json
   def show
+    respond_to do|format|
+      format.html
+      format.pdf do
+        leave_dates = @leave_application.leave_dates.order(:date).eager_load(:leave_period)
+        pdf = LeaveApplicationPdf.new(@leave_application,leave_dates,@leave_application.user)
+        send_data pdf.render, filename: "#{@leave_application.application_date}_#{@leave_application.user.name}.pdf",
+                                        type: "application/pdf",
+                                        disposition: "inline"
+      end
+    end
   end
 
   # GET /leave_applications/new

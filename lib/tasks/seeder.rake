@@ -49,9 +49,9 @@ namespace :seeder do
   	LeaveDate.destroy_all
   	LeaveApplication.destroy_all
   	lps = []
-  	lps.push LeavePeriod.create!(name: "morning", start_time: "9:00AM",end_time: "12:00PM")
-  	lps.push LeavePeriod.create!(name: "afternoon", start_time: "12:00PM",end_time: "5:30PM")
-  	lps.push LeavePeriod.create!(name: "whole day", start_time: "9:00AM",end_time: "5:30PM")
+  	lps.push LeavePeriod.create!(name: "morning", start_time: "9:00AM",end_time: "12:00PM",total_hours: 3.0)
+  	lps.push LeavePeriod.create!(name: "afternoon", start_time: "1:00PM",end_time: "5:30PM",total_hours: 4.5)
+  	lps.push LeavePeriod.create!(name: "whole day", start_time: "9:00AM",end_time: "5:30PM",total_hours: 7.5)
   	lts = LeaveType.all
  	User.all.each do|user|
  		rand(10..20).times do|i|
